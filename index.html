@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <title>Dagdu Sheth Ganpati Mandir | Pune | Visitor Guide</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+
+    <body>
+
+        <header>
+            <h1>Dagdu Sheth Ganpati Mandir</h1>
+            <p>Before You Visit – Important Information</p>
+        </header>
+
+        <section>
+            <h2>🎟️ VIP Darshan Pass Booking</h2>
+            <p>Devotees can request a VIP Darshan pass by filling the form below.
+                Please ensure all details are correct.
+            </p>
+
+            <form id="darshanForm">
+
+                <label>Full Name:</label><br>
+                <input type="text" name="name" required><br><br>
+
+                <label>Mobile Number:</label><br>
+                <input type="tel" name="mobile" pattern="[0-9]{10}" required>
+                <small>(10-digit number)</small><br><br>
+
+                <label>Email Address:</label><br>
+                <input type="email" name="email" required><br><br>
+
+                <label>Darshan Date:</label><br>
+                <input type="date" name="date" required><br><br>
+
+                <label>Number of Devotees:</label><br>
+                <input type="number" name="persons" min="1" max="10" required><br><br>
+
+                <label>Darshan Type:</label><br>
+                <select name="darshan" required>
+                    <option value="">-- Select Darshan Type --</option>
+                    <option value="normal">Normal Darshan (Free)</option>
+                    <option value="vip">VIP Darshan (Paid)</option>
+                </select><br><br>
+
+                <label>Preferred Time Slot:</label><br>
+                <select name="time" required>
+                    <option value="">-- Select Time Slot --</option>
+                    <option value="morning">Morning (6 AM – 10 AM)</option>
+                    <option value="afternoon">Afternoon (12 PM – 4 PM)</option>
+                    <option value="evening">Evening (6 PM – 10 PM)</option>
+                </select><br><br>
+
+                <div class="checkbox-group">
+                    <label>
+                        <input type="checkbox" required>
+                        I agree to follow temple rules and guidelines
+                    </label>
+                </div>
+
+                <div id="priceSection" style="display: none; margin-top: 15px;">
+                    <strong>VIP Darshan Fee:</strong>
+                    <p>₹100 per person</p>
+                    <p><strong>Total Amount: ₹<span id="totalAmount">0</span></strong></p>
+                </div>
+
+
+                <button type="submit">Proceed to Payment</button>
+            </form>
+        </section>
+
+
+        <section>
+            <h2>🙏 About the Temple</h2>
+            <p>
+                Shreemant Dagdusheth Halwai Ganpati Temple is one of the most famous
+                and revered Ganpati temples in Pune, Maharashtra.
+                Devotees from all over India visit the temple to seek blessings.
+            </p>
+        </section>
+
+        <section>
+            <h2>🕰 Temple Timings</h2>
+            <ul>
+                <li>Morning: 6:00 AM – 11:00 PM</li>
+                <li>Aarti Times:
+                    <ul>
+                        <li>Kakad Aarti – 7:30 AM</li>
+                        <li>Madhyan Aarti – 12:00 PM</li>
+                        <li>Shej Aarti – 10:30 PM</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>📍 Location</h2>
+            <p>
+            Ganpati Bhavan, Budhwar Peth, Pune, Maharashtra – 411002
+            </p>
+        </section>
+
+        <section>
+            <h2>📋 Things to Know Before Visit</h2>
+            <ul>
+                <li>Maintain silence and follow temple rules</li>
+                <li>Mobile phones are usually not allowed inside</li>
+                <li>Footwear must be removed outside</li>
+                <li>Weekends and festivals are very crowded</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>🚫 Dress Code & Etiquette</h2>
+            <ul>
+                <li>Wear decent and traditional clothes</li>
+                <li>Avoid shorts or sleeveless tops</li>
+                <li>Respect devotees and temple staff</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>🌼 Best Time to Visit</h2>
+            <p>
+                Early morning or late night is ideal to avoid crowds.
+                Ganesh Chaturthi festival attracts maximum devotees.
+            </p>
+        </section>
+
+        <footer>
+            <p> © Shreemant Dagdusheth Halwai Sarvajanik Ganpati Trust.</p>
+        </footer>
+
+    </body>
+</html>
+
+
