@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dagdu-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dagdu-app
+  template:
+    metadata:
+      labels:
+        app: dagdu-app
+    spec:
+      containers:
+        - name: dagdu-container
+          image: saurabh1307/dagdu-app:latest
+          ports:
+            - containerPort: 80
