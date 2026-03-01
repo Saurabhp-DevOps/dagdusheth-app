@@ -4,18 +4,22 @@ metadata:
   name: dagdu-deployment
 spec:
   replicas: 2
+
   strategy:
     type: RollingUpdate
     rollingUpdate:
       maxUnavailable: 1
       maxSurge: 1
+
   selector:
     matchLabels:
       app: dagdu-app
+
   template:
     metadata:
       labels:
         app: dagdu-app
+
     spec:
       containers:
         - name: dagdu-container
