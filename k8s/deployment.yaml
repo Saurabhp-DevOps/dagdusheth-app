@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: dagdusheth-app
+  namespace: default
 spec:
   replicas: 1
   selector:
@@ -17,11 +18,3 @@ spec:
           image: 984124409676.dkr.ecr.ap-south-1.amazonaws.com/dagdusheth-app:latest
           ports:
             - containerPort: 80
-
-      resources:
-          requests:
-          cpu: "100m"
-          memory: "128Mi"
-       limits:
-         cpu: "200m"
-         memory: "256Mi"

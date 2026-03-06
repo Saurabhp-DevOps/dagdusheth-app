@@ -2,11 +2,11 @@ apiVersion: v1
 kind: Service
 metadata:
   name: dagdusheth-service
+  namespace: default
 spec:
   type: LoadBalancer
   selector:
     app: dagdusheth-app
   ports:
-    - protocol: TCP
-      port: 80
+    - port: 80
       targetPort: 80
