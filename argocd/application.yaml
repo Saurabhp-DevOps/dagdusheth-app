@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/YOUR-USERNAME/dagdusheth-app.git
+    repoURL: https://github.com/Saurabhp-DevOps/dagdusheth-app.git
     targetRevision: main
     path: k8s
   destination:
