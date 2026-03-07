@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: SonarQube Scan
 
 on:
   push:
@@ -6,33 +6,25 @@ on:
       - main
 
 jobs:
-  build:
-    name: Build and SonarQube Scan
+  sonar-scan:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Set up JDK
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '17'
+      - name: Install Sonar Scanner
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y unzip
+          wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
+          unzip sonar-scanner-cli-5.0.1.3006-linux.zip
+          echo "$(pwd)/sonar-scanner-5.0.1.3006-linux/bin" >> $GITHUB_PATH
 
-      - name: Cache Maven Packages
-        uses: actions/cache@v4
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-m2
-
-      - name: Build Project
-        run: mvn clean install
-
-      - name: SonarQube Scan
-        run: mvn sonar:sonar \
-          -Dsonar.projectKey=demo-project \
-          -Dsonar.host.url=http://13.232.50.126:9000 \
-          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+      - name: Run SonarQube Scan
+        run: |
+          sonar-scanner \
+            -Dsonar.projectKey=dagdusheth-app \
+            -Dsonar.sources=. \
+            -Dsonar.host.url=http://13.232.50.126:9000 \
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
