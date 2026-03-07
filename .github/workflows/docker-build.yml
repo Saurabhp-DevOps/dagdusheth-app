@@ -7,7 +7,7 @@ on:
 
 env:
   AWS_REGION: ap-south-1
-  ECR_REPOSITORY: myapp
+  ECR_REPOSITORY: dagdusheth-app
   IMAGE_TAG: latest
 
 jobs:
