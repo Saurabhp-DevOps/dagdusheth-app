@@ -1,23 +1,38 @@
-name: CI
+name: CI Pipeline
 
 on:
-push:
-branches:
-- main
+  push:
+    branches:
+      - main
 
 jobs:
-sonar:
-runs-on: ubuntu-latest
+  build:
+    name: Build and SonarQube Scan
+    runs-on: ubuntu-latest
 
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-steps:
-  - name: Checkout code
-    uses: actions/checkout@v3
-    with:
-      fetch-depth: 0
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
 
-  - name: SonarQube Scan
-    uses: sonarsource/sonarqube-scan-action@master
-    env:
-      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      - name: Cache Maven Packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-m2
+
+      - name: Build Project
+        run: mvn clean install
+
+      - name: SonarQube Scan
+        run: mvn sonar:sonar \
+          -Dsonar.projectKey=demo-project \
+          -Dsonar.host.url=http://13.232.50.126:9000 \
+          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
