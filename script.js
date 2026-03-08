@@ -24,6 +24,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    console.log("New version Deployed")
+
 
     form.addEventListener("submit", function (event) {
         event.preventDefault();
