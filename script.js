@@ -23,10 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
             totalAmountSpan.textContent = 0;
         }
     }
-
-    console.log("New version Deployed");
-
-
+    
     form.addEventListener("submit", function (event) {
         event.preventDefault();
 
