@@ -18,3 +18,5 @@ spec:
           image: 984124409676.dkr.ecr.ap-south-1.amazonaws.com/dagdusheth-app:latest
           ports:
             - containerPort: 80
+          imagePullSecrets:
+            - name: ecr-secret
